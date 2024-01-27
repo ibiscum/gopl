@@ -1,4 +1,4 @@
-module gopl.io
+module gopl
 
 go 1.16
 
