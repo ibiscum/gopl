@@ -16,10 +16,10 @@ import (
 	"log"
 	"os"
 
-	"gopl.io/ch5/links"
+	"github.com/ibiscum/gopl/ch05/links"
 )
 
-//!+crawl
+// !+crawl
 func crawl(url string) []string {
 	fmt.Println(url)
 	list, err := links.Extract(url)
@@ -31,7 +31,7 @@ func crawl(url string) []string {
 
 //!-crawl
 
-//!+main
+// !+main
 func main() {
 	worklist := make(chan []string)
 

@@ -8,7 +8,7 @@ import (
 	"sort"
 	"testing"
 
-	"gopl.io/ch4/treesort"
+	"github.com/ibiscum/gopl/ch04/treesort"
 )
 
 func TestSort(t *testing.T) {

@@ -12,10 +12,10 @@ import (
 	"log"
 	"os"
 
-	"gopl.io/ch4/github"
+	"github.com/ibiscum/gopl/ch04/github"
 )
 
-//!+
+// !+
 func main() {
 	result, err := github.SearchIssues(os.Args[1:])
 	if err != nil {
