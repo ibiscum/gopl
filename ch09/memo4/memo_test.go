@@ -6,8 +6,8 @@ package memo_test
 import (
 	"testing"
 
-	"gopl.io/ch9/memo4"
-	"gopl.io/ch9/memotest"
+	memo "github.com/ibiscum/gopl/ch09/memo4"
+	"github.com/ibiscum/gopl/ch09/memotest"
 )
 
 var httpGetBody = memotest.HTTPGetBody

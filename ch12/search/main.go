@@ -10,11 +10,11 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/ibiscum/gopl/ch12/params"
 )
 
 //!+
-
-import "gopl.io/ch12/params"
 
 // search implements the /search URL endpoint.
 func search(resp http.ResponseWriter, req *http.Request) {
