@@ -12,7 +12,7 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/ibiscum/gopl/ch04/github"
+	"github.com/ibiscum/gopl.io/ch04/github"
 )
 
 // !+template

@@ -11,7 +11,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/ibiscum/gopl/ch07/eval"
+	"github.com/ibiscum/gopl.io/ch07/eval"
 )
 
 // NOTE: we can't use !+..!- comments to excerpt these tests

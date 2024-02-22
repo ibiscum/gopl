@@ -12,7 +12,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/ibiscum/gopl/ch02/tempconv"
+	"github.com/ibiscum/gopl.io/ch02/tempconv"
 )
 
 func main() {

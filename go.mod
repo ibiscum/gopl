@@ -1,4 +1,4 @@
-module github.com/ibiscum/gopl
+module github.com/ibiscum/gopl.io
 
 go 1.16
 

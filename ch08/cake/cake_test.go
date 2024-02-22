@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ibiscum/gopl/ch08/cake"
+	"github.com/ibiscum/gopl.io/ch08/cake"
 )
 
 var defaults = cake.Shop{

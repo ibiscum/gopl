@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ibiscum/gopl/ch12/methods"
+	"github.com/ibiscum/gopl.io/ch12/methods"
 )
 
 func ExamplePrintDuration() {

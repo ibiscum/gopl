@@ -14,7 +14,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/ibiscum/gopl/ch05/links"
+	"github.com/ibiscum/gopl.io/ch05/links"
 )
 
 // !+sema

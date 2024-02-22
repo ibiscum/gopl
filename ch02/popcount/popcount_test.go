@@ -6,7 +6,7 @@ package popcount_test
 import (
 	"testing"
 
-	"github.com/ibiscum/gopl/ch02/popcount"
+	"github.com/ibiscum/gopl.io/ch02/popcount"
 )
 
 // -- Alternative implementations --

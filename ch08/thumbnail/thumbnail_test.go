@@ -11,7 +11,7 @@ import (
 	"os"
 	"sync"
 
-	"github.com/ibiscum/gopl/ch08/thumbnail"
+	"github.com/ibiscum/gopl.io/ch08/thumbnail"
 )
 
 // !+1

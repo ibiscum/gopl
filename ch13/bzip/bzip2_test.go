@@ -9,7 +9,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/ibiscum/gopl/ch13/bzip" // writer
+	"github.com/ibiscum/gopl.io/ch13/bzip" // writer
 )
 
 func TestBzip2(t *testing.T) {

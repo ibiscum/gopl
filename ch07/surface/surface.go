@@ -13,7 +13,7 @@ import (
 	"math"
 	"net/http"
 
-	"github.com/ibiscum/gopl/ch07/eval"
+	"github.com/ibiscum/gopl.io/ch07/eval"
 )
 
 //!+parseAndCheck

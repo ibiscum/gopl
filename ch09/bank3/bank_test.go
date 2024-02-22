@@ -7,7 +7,7 @@ import (
 	"sync"
 	"testing"
 
-	bank "github.com/ibiscum/gopl/ch09/bank3"
+	bank "github.com/ibiscum/gopl.io/ch09/bank3"
 )
 
 func TestBank(t *testing.T) {

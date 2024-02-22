@@ -11,7 +11,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/ibiscum/gopl/ch12/params"
+	"github.com/ibiscum/gopl.io/ch12/params"
 )
 
 //!+

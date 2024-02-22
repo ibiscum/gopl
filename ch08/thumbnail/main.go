@@ -24,7 +24,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/ibiscum/gopl/ch08/thumbnail"
+	"github.com/ibiscum/gopl.io/ch08/thumbnail"
 )
 
 func main() {

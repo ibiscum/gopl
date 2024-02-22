@@ -10,7 +10,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/ibiscum/gopl/ch07/tempconv"
+	"github.com/ibiscum/gopl.io/ch07/tempconv"
 )
 
 // !+
