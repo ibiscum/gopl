@@ -7,6 +7,7 @@ import (
 	"bytes"
 	"compress/bzip2" // reader
 	"io"
+	"log"
 	"testing"
 
 	"github.com/ibiscum/gopl.io/ch13/bzip" // writer
@@ -20,7 +21,10 @@ func TestBzip2(t *testing.T) {
 	// compressing one copy but not the other.
 	tee := io.MultiWriter(w, &uncompressed)
 	for i := 0; i < 1000000; i++ {
-		io.WriteString(tee, "hello")
+		_, err := io.WriteString(tee, "hello")
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 	if err := w.Close(); err != nil {
 		t.Fatal(err)
@@ -33,7 +37,10 @@ func TestBzip2(t *testing.T) {
 
 	// Decompress and compare with original.
 	var decompressed bytes.Buffer
-	io.Copy(&decompressed, bzip2.NewReader(&compressed))
+	_, err := io.Copy(&decompressed, bzip2.NewReader(&compressed))
+	if err != nil {
+		log.Fatal(err)
+	}
 	if !bytes.Equal(uncompressed.Bytes(), decompressed.Bytes()) {
 		t.Error("decompression yielded a different message")
 	}
