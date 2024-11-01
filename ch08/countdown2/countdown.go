@@ -8,6 +8,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"time"
 )
@@ -22,7 +23,10 @@ func main() {
 	//!+abort
 	abort := make(chan struct{})
 	go func() {
-		os.Stdin.Read(make([]byte, 1)) // read a single byte
+		_, err := os.Stdin.Read(make([]byte, 1)) // read a single byte
+		if err != nil {
+			log.Fatal(err)
+		}
 		abort <- struct{}{}
 	}()
 	//!-abort

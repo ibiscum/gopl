@@ -13,7 +13,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"log"
 	"os"
 	"path/filepath"
 	"sync"
@@ -22,7 +22,7 @@ import (
 
 var vFlag = flag.Bool("v", false, "show verbose progress messages")
 
-//!+
+// !+
 func main() {
 	// ...determine roots...
 
@@ -82,7 +82,7 @@ func printDiskUsage(nfiles, nbytes int64) {
 
 // walkDir recursively walks the file tree rooted at dir
 // and sends the size of each found file on fileSizes.
-//!+walkDir
+// !+walkDir
 func walkDir(dir string, n *sync.WaitGroup, fileSizes chan<- int64) {
 	defer n.Done()
 	for _, entry := range dirents(dir) {
@@ -91,25 +91,29 @@ func walkDir(dir string, n *sync.WaitGroup, fileSizes chan<- int64) {
 			subdir := filepath.Join(dir, entry.Name())
 			go walkDir(subdir, n, fileSizes)
 		} else {
-			fileSizes <- entry.Size()
+			info, err := entry.Info()
+			if err != nil {
+				log.Fatal(err)
+			}
+			fileSizes <- info.Size()
 		}
 	}
 }
 
 //!-walkDir
 
-//!+sema
+// !+sema
 // sema is a counting semaphore for limiting concurrency in dirents.
 var sema = make(chan struct{}, 20)
 
 // dirents returns the entries of directory dir.
-func dirents(dir string) []os.FileInfo {
+func dirents(dir string) []os.DirEntry {
 	sema <- struct{}{}        // acquire token
 	defer func() { <-sema }() // release token
 	// ...
 	//!-sema
 
-	entries, err := ioutil.ReadDir(dir)
+	entries, err := os.ReadDir(dir)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "du: %v\n", err)
 		return nil

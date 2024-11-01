@@ -11,13 +11,14 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"sync"
 	"time"
 )
 
-//!+1
+// !+1
 var done = make(chan struct{})
 
 func cancelled() bool {
@@ -41,7 +42,10 @@ func main() {
 	//!+2
 	// Cancel traversal when input is detected.
 	go func() {
-		os.Stdin.Read(make([]byte, 1)) // read a single byte
+		_, err := os.Stdin.Read(make([]byte, 1)) // read a single byte
+		if err != nil {
+			log.Fatal(err)
+		}
 		close(done)
 	}()
 	//!-2
@@ -92,7 +96,7 @@ func printDiskUsage(nfiles, nbytes int64) {
 
 // walkDir recursively walks the file tree rooted at dir
 // and sends the size of each found file on fileSizes.
-//!+4
+// !+4
 func walkDir(dir string, n *sync.WaitGroup, fileSizes chan<- int64) {
 	defer n.Done()
 	if cancelled() {
@@ -117,7 +121,7 @@ func walkDir(dir string, n *sync.WaitGroup, fileSizes chan<- int64) {
 var sema = make(chan struct{}, 20) // concurrency-limiting counting semaphore
 
 // dirents returns the entries of directory dir.
-//!+5
+// !+5
 func dirents(dir string) []os.FileInfo {
 	select {
 	case sema <- struct{}{}: // acquire token
